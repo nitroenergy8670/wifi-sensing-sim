@@ -25,7 +25,7 @@ window.WSIM = window.WSIM || {};
   S.TX = { wallGap: 0.11, z: 0.30 };
   S.tx = room => ({ x: room.w - S.TX.wallGap, y: S.bed(room).y, z: S.TX.z });
   S.LAYOUTS = [
-    { id: 'F', name: 'F · 공동 앵커 배치', note: '팀원 계획의 앵커 위치(모서리 4대 + 긴 벽 가운데 2대, 2.0/2.5 m 교대)를 그대로 쓸 때. 벽에서 10 cm 안쪽.', shared: true,
+    { id: 'F', name: 'F · 공동 앵커 배치', note: '동료 계획의 앵커 위치(모서리 4대 + 긴 벽 가운데 2대, 2.0/2.5 m 교대)를 그대로 쓸 때. 벽에서 10 cm 안쪽.', shared: true,
       z: [2.0, 2.5, 2.0, 2.5, 2.0, 2.5] },
     { id: 'A', name: 'A · 6대 모두 2.25 m', note: '같은 벽 위치에서 수신기를 모두 높게.', z: [2.25, 2.25, 2.25, 2.25, 2.25, 2.25] },
     { id: 'B', name: 'B · 1.10 m 3대 + 2.25 m 3대', note: '높이를 섞은 배치. 이전 도구의 기본값.', z: [1.10, 2.25, 1.10, 2.25, 1.10, 2.25] },
@@ -48,8 +48,8 @@ window.WSIM = window.WSIM || {};
   S.EQUIP = [
     { title: '센싱 장비', src: 'A안: ESP → ESP', items: [
       { name: '송신 ESP (사용자 보유)', qty: '1', tag: 'have', tagText: '보유', det: 'esp-csi의 csi_send처럼 ESP-NOW 패킷을 일정 간격으로 보낸다. 사용자 장비라 위치를 옮길 수 있다. 정확한 모델(S3 여부) 확인 필요' },
-      { name: 'ESP32-S3 수신기 (공동 앵커 보드)', qty: '6', tag: 'have', tagText: '공동', det: '사용자 실험 때 csi_recv처럼 송신 ESP의 패킷에서 CSI를 받는 프로파일로 전환. 송신원 MAC으로 걸러 공유기 패킷은 제외. 팀원 펌웨어·설정을 보존하고 복원할 수 있어야 한다' },
-      { name: 'DWM3000EVB (앵커에 연결된 채)', qty: '—', det: 'Wi-Fi 센싱 입력에 쓰지 않는다. 팀원 배선을 그대로 두고 건드리지 않는다' }
+      { name: 'ESP32-S3 수신기 (공동 앵커 보드)', qty: '6', tag: 'have', tagText: '공동', det: '사용자 실험 때 csi_recv처럼 송신 ESP의 패킷에서 CSI를 받는 프로파일로 전환. 송신원 MAC으로 걸러 공유기 패킷은 제외. 동료 펌웨어·설정을 보존하고 복원할 수 있어야 한다' },
+      { name: 'DWM3000EVB (앵커에 연결된 채)', qty: '—', det: 'Wi-Fi 센싱 입력에 쓰지 않는다. 동료 배선을 그대로 두고 건드리지 않는다' }
     ] },
     { title: '기록·정답', src: '공동 사용', items: [
       { name: '2.4 GHz 공유기 (업로드 통로)', qty: '1', tag: 'have', tagText: '공동', det: '측정 링크에 쓰지 않는다. 방 밖 PC 옆에서 수신기 업로드와 PC 연결만 맡는다. 송신 ESP와 같은 채널이면 전송 시간을 나눠 쓰므로 실제 수집률 실측 필요. 대안: PC에 USB로 연결한 수집용 ESP' },
@@ -61,7 +61,7 @@ window.WSIM = window.WSIM || {};
     ] },
     { title: '수신기 설치 재료', src: '공동 앵커 재료', items: [
       { name: 'USB 케이블 + 멀티포트 충전기', qty: '6 + 1', tag: 'have', tagText: '공동', det: '수신기 전원. 데이터는 무선. 케이블 길이는 1번 환경의 계산 참고' },
-      { name: '벽 부착 재료', qty: '—', tag: 'have', tagText: '공동', det: '팀원 앵커 설치물을 그대로 사용. 안테나 방향과 높이를 실측해 기록' }
+      { name: '벽 부착 재료', qty: '—', tag: 'have', tagText: '공동', det: '동료 앵커 설치물을 그대로 사용. 안테나 방향과 높이를 실측해 기록' }
     ] },
     { title: '실험 보조', src: '제안', items: [
       { name: '줄자 또는 레이저 거리계', qty: '1', tag: 'sug', tagText: '제안', det: '송신 ESP·수신기 안테나 좌표, 정지점 좌표 실측' },

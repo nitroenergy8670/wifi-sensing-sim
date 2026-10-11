@@ -32,7 +32,7 @@
     { id: 'gt', name: '정답 영상', col: '--tape', state: 'todo', stateText: '시각 대응 확인', edges: [['pi', 'pc']],
       det: '카메라 영상으로 위치·자세·재실 라벨을 만든다. 센싱 입력에는 넣지 않는다.' },
     { id: 'uwb', name: 'DWM3000EVB (연결된 채)', col: '--shield', state: 'off', stateText: '사용 안 함', edges: [],
-      det: '공동 앵커 보드에 붙어 있는 UWB 모듈. Wi-Fi 센싱에 쓰지 않고 팀원 배선을 보존한다.' }
+      det: '공동 앵커 보드에 붙어 있는 UWB 모듈. Wi-Fi 센싱에 쓰지 않고 동료 배선을 보존한다.' }
   ];
 
   K.createView = function (host, opts) {

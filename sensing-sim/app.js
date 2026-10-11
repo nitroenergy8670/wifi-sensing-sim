@@ -94,7 +94,7 @@
       '<label class="field">프레넬 영역을 볼 수신기<select id="sel-rx">' + lay.rx.map(r => '<option value="' + r.id + '"' + (r.id === st.selRx ? ' selected' : '') + '>RX' + r.id + '</option>').join('') + '</select></label></div>' +
       '<div class="blk"><h3>좌표 (m)</h3><table><thead><tr><th>장치</th><th>x</th><th>y</th><th>z</th></tr></thead><tbody>' +
       row('송신 ESP', lay.ap) + lay.rx.map(r => row('RX' + r.id, r)).join('') + (st.ble ? row('BLE', lay.ble) : '') +
-      '</tbody></table><span class="small">설치 후 안테나 중심을 실측해 바꿔 적는다. 공동 앵커를 쓰면 팀원 앵커 좌표와 같다.</span></div>' +
+      '</tbody></table><span class="small">설치 후 안테나 중심을 실측해 바꿔 적는다. 공동 앵커를 쓰면 동료 앵커 좌표와 같다.</span></div>' +
       '<div class="blk"><h3>바닥 겹침 지도 · ' + POSE_NAME[st.mapPose] + '</h3><dl class="kv"><dt>겹침 0개인 자리</dt><dd>' + m.zero.toFixed(1) + '%</dd><dt>2개 이상 겹치는 자리</dt><dd>' + m.multi.toFixed(1) + '%</dd><dt>계산한 자리</dt><dd>' + m.valid + '곳 · ' + (m.step * 100).toFixed(0) + ' cm 간격</dd></dl>' +
       '<span class="small">사람 상자와 링크의 제1 프레넬 영역이 겹치는지만 센 값이다. 감지 성공률이나 실제 사각지대가 아니다. 겹침 0개 자리에서도 반사파로 신호는 바뀐다.</span></div>' +
       '<div class="blk"><h3>USB 케이블 길이</h3><table><thead><tr><th>수신기</th><th>필요 길이</th><th>3 m</th></tr></thead><tbody>' +
@@ -283,7 +283,7 @@
     $('link-side').innerHTML = '<div class="blk"><h3>연결 목록</h3><table class="ltab"><thead><tr><th>경로</th><th>상태</th></tr></thead><tbody>' +
       K.GROUPS.map(g => '<tr data-g="' + g.id + '"' + (linkView.cur === g.id ? ' class="cur"' : '') + '><td><span class="sw" style="background:var(' + g.col + ')"></span><b>' + esc(g.name) + '</b><br><span class="small">' + esc(g.det) + '</span></td><td class="st ' + g.state + '">' + esc(g.stateText) + '</td></tr>').join('') +
       '</tbody></table></div>' +
-      '<div class="blk"><h3>수신기 1대의 구성</h3><span class="small">공동 앵커 보드 그대로: ESP32-S3 + DWM3000EVB(점퍼 연결 유지, 사용 안 함) + USB 전원. 사용자 실험 때만 ESP 펌웨어를 CSI 수신 프로파일로 바꾸고, 끝나면 팀원 프로파일로 복원한다. 추가 배선은 없다.</span></div>' +
+      '<div class="blk"><h3>수신기 1대의 구성</h3><span class="small">공동 앵커 보드 그대로: ESP32-S3 + DWM3000EVB(점퍼 연결 유지, 사용 안 함) + USB 전원. 사용자 실험 때만 ESP 펌웨어를 CSI 수신 프로파일로 바꾸고, 끝나면 동료 프로파일로 복원한다. 추가 배선은 없다.</span></div>' +
       '<div class="blk"><h3>기록에 꼭 남길 것</h3><span class="small">수신기 ID · 송신원 ID · 측정 종류(CSI / Wi-Fi RSSI / BLE RSSI) · 수신기 로컬 시각 · 순번 · 큐 폐기 수 · PC 도착 시각 · 펌웨어 버전과 설정.</span></div>';
     $('link-side').querySelectorAll('tbody tr').forEach(tr => tr.addEventListener('click', () => {
       const g = tr.dataset.g; linkView.highlight(linkView.cur === g ? null : g); renderLinkSide();
